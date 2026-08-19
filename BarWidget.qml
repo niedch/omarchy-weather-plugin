@@ -4,6 +4,7 @@ import QtQuick
 import qs
 import qs.Ui
 import qs.Commons
+import "WeatherCodes.js" as WeatherCodes
 
 BarWidget {
   id: widget

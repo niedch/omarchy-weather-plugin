@@ -1,5 +1,6 @@
 import QtQuick
 import qs
+import "WeatherCodes.js" as WeatherCodes
 
 Item {
   id: scene

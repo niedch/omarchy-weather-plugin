@@ -2,6 +2,7 @@ import Quickshell
 import Quickshell.Hyprland
 import QtQuick
 import qs
+import "WeatherCodes.js" as WeatherCodes
 
 PopupWindow {
   id: root
