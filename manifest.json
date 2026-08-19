@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "nic.omarchy-weather",
+  "name": "Weather",
+  "version": "1.0.0",
+  "author": "nic",
+  "license": "MIT",
+  "description": "Weather display with animated popup, hourly and 3-day forecast from wttr.in",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Weather",
+    "description": "Weather display with animated popup, hourly and 3-day forecast from wttr.in",
+    "category": "Information",
+    "allowMultiple": false
+  }
+}
