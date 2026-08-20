@@ -52,7 +52,7 @@ Item {
   }
 
   CloudScene {
-    active: WeatherCodes.isCloudy(scene.effectiveCode) || WeatherCodes.isFog(scene.effectiveCode) || WeatherCodes.isThunder(scene.effectiveCode)
+    active: WeatherCodes.isCloudy(scene.effectiveCode)
     popupShown: scene.popupShown
   }
 
