@@ -1,5 +1,5 @@
 import QtQuick
-import qs
+import qs.Commons
 
 Item {
   id: root
@@ -12,8 +12,7 @@ Item {
   property bool particlesInit: false
 
   function tint(c, a) {
-    var col = Qt.color(String(c))
-    return Qt.rgba(col.r, col.g, col.b, a)
+    return Qt.rgba(c.r, c.g, c.b, a)
   }
 
   function initParticles() {
@@ -62,7 +61,7 @@ Item {
       if (!root.particlesInit) root.initParticles()
       var ctx = getContext("2d")
       ctx.clearRect(0, 0, width, height)
-      ctx.fillStyle = root.tint(Colors.color7, 0.9)
+      ctx.fillStyle = root.tint(Color.foreground, 0.9)
       for (var i = 0; i < root.flakes.length; i++) {
         var s = root.flakes[i]
         ctx.beginPath()

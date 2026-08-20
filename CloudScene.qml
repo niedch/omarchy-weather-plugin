@@ -1,5 +1,5 @@
 import QtQuick
-import qs
+import qs.Commons
 
 Item {
   id: root
@@ -9,14 +9,13 @@ Item {
   anchors.fill: parent
 
   function tint(c, a) {
-    var col = Qt.color(String(c))
-    return Qt.rgba(col.r, col.g, col.b, a)
+    return Qt.rgba(c.r, c.g, c.b, a)
   }
 
   component CloudShape: Rectangle {
     property int driftDur: 8000
     radius: height / 2
-    color: root.tint(Colors.color8, 0.5)
+    color: root.tint(Color.muted, 0.5)
     y: parent.height * 0.5
     x: -width
 

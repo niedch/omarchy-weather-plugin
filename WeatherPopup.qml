@@ -1,7 +1,7 @@
 import Quickshell
 import Quickshell.Hyprland
 import QtQuick
-import qs
+import qs.Commons
 import "WeatherCodes.js" as WeatherCodes
 
 PopupWindow {
@@ -51,8 +51,8 @@ PopupWindow {
     id: card
     width: 360
     implicitHeight: column.implicitHeight + 24
-    color: Colors.background
-    border.color: Colors.color0
+    color: Color.background
+    border.color: Color.muted
     border.width: 1
     radius: 8
 
@@ -72,9 +72,9 @@ PopupWindow {
           id: title
           anchors.verticalCenter: parent.verticalCenter
           text: "Weather"
-          color: Colors.foreground
-          font.family: Constants.fontFamily
-          font.pixelSize: Constants.fontSize
+          color: Color.foreground
+          font.family: Style.font.family
+          font.pixelSize: Style.font.body
           font.bold: true
         }
 
@@ -87,9 +87,9 @@ PopupWindow {
           id: descText
           anchors.verticalCenter: parent.verticalCenter
           text: root.target ? root.target.description : ""
-          color: Colors.color8
-          font.family: Constants.fontFamily
-          font.pixelSize: Constants.fontSizeSmall
+          color: Color.muted
+          font.family: Style.font.family
+          font.pixelSize: Style.font.caption
           elide: Text.ElideRight
         }
       }
@@ -117,8 +117,8 @@ PopupWindow {
 
             Text {
               text: (root.target ? root.target.tempC : "") + "°C"
-              color: Colors.foreground
-              font.family: Constants.fontFamily
+              color: Color.foreground
+              font.family: Style.font.family
               font.pixelSize: 22
               font.bold: true
             }
@@ -126,9 +126,9 @@ PopupWindow {
             Text {
               text: "Feels " + (root.target ? root.target.feelsLikeC : "") + "°C"
               anchors.verticalCenter: parent.verticalCenter
-              color: Colors.color8
-              font.family: Constants.fontFamily
-              font.pixelSize: Constants.fontSizeSmall
+              color: Color.muted
+              font.family: Style.font.family
+              font.pixelSize: Style.font.caption
             }
           }
 
@@ -137,16 +137,16 @@ PopupWindow {
 
             Text {
               text: "󰜃 " + (root.target ? root.target.humidity : "") + "%"
-              color: Colors.color8
-              font.family: Constants.fontFamily
-              font.pixelSize: Constants.fontSizeSmall
+              color: Color.muted
+              font.family: Style.font.family
+              font.pixelSize: Style.font.caption
             }
 
             Text {
               text: "󰖝 " + (root.target ? root.target.windSpeed : "") + " km/h"
-              color: Colors.color8
-              font.family: Constants.fontFamily
-              font.pixelSize: Constants.fontSizeSmall
+              color: Color.muted
+              font.family: Style.font.family
+              font.pixelSize: Style.font.caption
             }
           }
         }
@@ -163,7 +163,7 @@ PopupWindow {
       Rectangle {
         width: parent.width
         height: 1
-        color: Colors.color0
+        color: Color.muted
         visible: orbitScene.visible
       }
 
@@ -175,9 +175,9 @@ PopupWindow {
         Text {
           id: forecastLabel
           text: "Forecast"
-          color: Colors.color8
-          font.family: Constants.fontFamily
-          font.pixelSize: Constants.fontSizeSmall
+          color: Color.muted
+          font.family: Style.font.family
+          font.pixelSize: Style.font.caption
           font.bold: true
         }
 
@@ -189,18 +189,18 @@ PopupWindow {
         Text {
           id: moonIcon
           text: root.target ? WeatherCodes.moonIcon(root.target.moonPhase) : ""
-          color: Colors.foreground
-          font.family: Constants.fontFamily
-          font.pixelSize: Constants.fontSize
+          color: Color.foreground
+          font.family: Style.font.family
+          font.pixelSize: Style.font.body
         }
 
         Text {
           id: moonText
           text: (root.target ? root.target.moonPhase : "")
             + (root.target && root.target.moonIllumination !== "" ? " (" + root.target.moonIllumination + "%)" : "")
-          color: Colors.color8
-          font.family: Constants.fontFamily
-          font.pixelSize: Constants.fontSizeSmall
+          color: Color.muted
+          font.family: Style.font.family
+          font.pixelSize: Style.font.caption
         }
       }
 
@@ -214,9 +214,9 @@ PopupWindow {
             width: 44
             text: WeatherCodes.dayLabel(modelData.date)
             anchors.verticalCenter: parent.verticalCenter
-            color: Colors.foreground
-            font.family: Constants.fontFamily
-            font.pixelSize: Constants.fontSizeSmall
+            color: Color.foreground
+            font.family: Style.font.family
+            font.pixelSize: Style.font.caption
             font.bold: true
           }
 
@@ -224,26 +224,26 @@ PopupWindow {
             width: 24
             text: modelData.icon
             anchors.verticalCenter: parent.verticalCenter
-            color: Colors.foreground
-            font.family: Constants.fontFamily
-            font.pixelSize: Constants.fontSize
+            color: Color.foreground
+            font.family: Style.font.family
+            font.pixelSize: Style.font.body
           }
 
           Text {
             width: 60
             text: modelData.maxC + "° / " + modelData.minC + "°"
             anchors.verticalCenter: parent.verticalCenter
-            color: Colors.foreground
-            font.family: Constants.fontFamily
-            font.pixelSize: Constants.fontSizeSmall
+            color: Color.foreground
+            font.family: Style.font.family
+            font.pixelSize: Style.font.caption
           }
 
           Text {
             text: modelData.desc
             anchors.verticalCenter: parent.verticalCenter
-            color: Colors.color8
-            font.family: Constants.fontFamily
-            font.pixelSize: Constants.fontSizeSmall
+            color: Color.muted
+            font.family: Style.font.family
+            font.pixelSize: Style.font.caption
             elide: Text.ElideRight
           }
         }
@@ -253,9 +253,9 @@ PopupWindow {
         width: parent.width
         visible: !root.target || root.target.weatherIcon === ""
         text: "Weather unavailable"
-        color: Colors.color8
-        font.family: Constants.fontFamily
-        font.pixelSize: Constants.fontSizeSmall
+        color: Color.muted
+        font.family: Style.font.family
+        font.pixelSize: Style.font.caption
       }
     }
   }

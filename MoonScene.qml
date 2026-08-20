@@ -1,5 +1,5 @@
 import QtQuick
-import qs
+import qs.Commons
 
 Item {
   id: root
@@ -49,7 +49,7 @@ Item {
       width: 22
       height: 22
       radius: 11
-      color: Colors.background
+      color: Color.background
     }
 
     StarDot {
@@ -58,7 +58,7 @@ Item {
       width: 3
       height: 3
       radius: 1.5
-      color: Colors.foreground
+      color: Color.foreground
     }
     StarDot {
       x: 42
@@ -66,7 +66,7 @@ Item {
       width: 2
       height: 2
       radius: 1
-      color: Colors.foreground
+      color: Color.foreground
       twinkleDur: 3000
     }
     StarDot {
@@ -75,7 +75,7 @@ Item {
       width: 2.5
       height: 2.5
       radius: 1.25
-      color: Colors.foreground
+      color: Color.foreground
       twinkleDur: 2500
     }
   }

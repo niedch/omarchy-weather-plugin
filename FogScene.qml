@@ -1,5 +1,5 @@
 import QtQuick
-import qs
+import qs.Commons
 
 Item {
   id: root
@@ -9,8 +9,7 @@ Item {
   anchors.fill: parent
 
   function tint(c, a) {
-    var col = Qt.color(String(c))
-    return Qt.rgba(col.r, col.g, col.b, a)
+    return Qt.rgba(c.r, c.g, c.b, a)
   }
 
   component FogBar: Rectangle {
@@ -18,7 +17,7 @@ Item {
     width: 90
     height: 10
     radius: 5
-    color: root.tint(Colors.foreground, 0.12)
+    color: root.tint(Color.foreground, 0.12)
     x: -width
     y: parent.height * 0.4
 

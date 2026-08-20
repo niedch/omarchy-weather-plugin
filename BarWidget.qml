@@ -1,7 +1,6 @@
 import Quickshell
 import Quickshell.Io
 import QtQuick
-import qs
 import qs.Ui
 import qs.Commons
 import "WeatherCodes.js" as WeatherCodes
@@ -11,6 +10,7 @@ BarWidget {
   moduleName: "nic.omarchy-weather"
 
   property int widthPadding: 15
+  property int pollInterval: 600000
 
   property string weatherIcon: ""
   property color weatherColor: Color.foreground
@@ -27,7 +27,7 @@ BarWidget {
   property var forecastHourly: []
   property string location: ""
 
-  implicitHeight: Constants.barHeight
+  implicitHeight: Style.bar.sizeHorizontal
   implicitWidth: weatherIcon !== "" ? iconText.implicitWidth + widthPadding : 0
 
   Text {
@@ -35,8 +35,8 @@ BarWidget {
     anchors.centerIn: parent
     text: widget.weatherIcon
     color: widget.weatherColor
-    font.family: Constants.fontFamily
-    font.pixelSize: Constants.fontSize
+    font.family: Style.font.family
+    font.pixelSize: Style.font.body
     scale: 1.0
 
     Behavior on color {
@@ -68,7 +68,7 @@ BarWidget {
 
   Timer {
     id: weatherTimer
-    interval: Constants.pollWeather
+    interval: widget.pollInterval
     running: true
     repeat: true
     onTriggered: fetchWeather.running = true

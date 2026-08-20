@@ -1,5 +1,4 @@
 import QtQuick
-import qs
 import qs.Commons
 import "WeatherCodes.js" as WeatherCodes
 
@@ -167,7 +166,7 @@ Item {
       onPaint: {
         var ctx = getContext("2d")
         ctx.clearRect(0, 0, width, height)
-        ctx.strokeStyle = Colors.color8
+        ctx.strokeStyle = Color.muted
         ctx.lineWidth = 1
         ctx.setLineDash([3, 8])
         ctx.beginPath()
@@ -217,9 +216,9 @@ Item {
           anchors.fill: parent
           radius: 8
           color: scene.selectedIndex === index
-            ? Util.alpha(Colors.accent, 0.18)
-            : (isActive ? Util.alpha(Colors.foreground, 0.12) : Colors.background)
-          border.color: scene.selectedIndex === index ? Colors.accent : (isActive ? Colors.color3 : Colors.color8)
+            ? Util.alpha(Color.accent, 0.18)
+            : (isActive ? Util.alpha(Color.foreground, 0.12) : Color.background)
+          border.color: scene.selectedIndex === index ? Color.accent : (isActive ? Color.accent : Color.muted)
           border.width: scene.selectedIndex === index ? 2 : (isActive ? 1.5 : 0.5)
 
           Behavior on color { ColorAnimation { duration: transitionDuration } }
@@ -232,8 +231,8 @@ Item {
             Text {
               anchors.horizontalCenter: parent.horizontalCenter
               text: modelData.time || ""
-              color: (scene.selectedIndex === index || isActive) ? Colors.foreground : Colors.color8
-              font.family: Constants.fontFamily
+              color: (scene.selectedIndex === index || isActive) ? Color.foreground : Color.muted
+              font.family: Style.font.family
               font.pixelSize: 9
               font.bold: true
             }
@@ -241,16 +240,16 @@ Item {
             Text {
               anchors.horizontalCenter: parent.horizontalCenter
               text: modelData.icon || ""
-              color: Colors.foreground
-              font.family: Constants.fontFamily
+              color: Color.foreground
+              font.family: Style.font.family
               font.pixelSize: 14
             }
 
             Text {
               anchors.horizontalCenter: parent.horizontalCenter
               text: (modelData.tempC || "") + "°"
-              color: Colors.foreground
-              font.family: Constants.fontFamily
+              color: Color.foreground
+              font.family: Style.font.family
               font.pixelSize: 10
               font.bold: true
             }
@@ -269,8 +268,8 @@ Item {
     Text {
       anchors.centerIn: parent
       text: WeatherCodes.dayLabel(target && target.forecastHourly && target.forecastHourly[dayIndex] ? target.forecastHourly[dayIndex].date : "")
-      color: Colors.accent
-      font.family: Constants.fontFamily
+      color: Color.accent
+      font.family: Style.font.family
       font.pixelSize: 14
       font.bold: true
       z: -1
@@ -287,8 +286,8 @@ Item {
 
     Text {
       text: "◀"
-      color: dayIndex > 0 ? Colors.foreground : Colors.color8
-      font.family: Constants.fontFamily
+      color: dayIndex > 0 ? Color.foreground : Color.muted
+      font.family: Style.font.family
       font.pixelSize: 12
       MouseArea {
         anchors.fill: parent
@@ -301,9 +300,9 @@ Item {
       text: "▶"
       color: {
         var max = hasData ? target.forecastHourly.length - 1 : 0
-        return dayIndex < max ? Colors.foreground : Colors.color8
+        return dayIndex < max ? Color.foreground : Color.muted
       }
-      font.family: Constants.fontFamily
+      font.family: Style.font.family
       font.pixelSize: 12
       MouseArea {
         anchors.fill: parent

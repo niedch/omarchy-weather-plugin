@@ -1,6 +1,6 @@
 import Quickshell
 import QtQuick
-import qs
+import qs.Commons
 
 Item {
   id: root
@@ -10,8 +10,7 @@ Item {
   anchors.fill: parent
 
   function tint(c, a) {
-    var col = Qt.color(String(c))
-    return Qt.rgba(col.r, col.g, col.b, a)
+    return Qt.rgba(c.r, c.g, c.b, a)
   }
 
   RainScene {
@@ -26,7 +25,7 @@ Item {
     width: 60
     height: 24
     radius: 12
-    color: root.tint(Colors.color0, 0.9)
+    color: root.tint(Color.muted, 0.9)
   }
 
   Rectangle {

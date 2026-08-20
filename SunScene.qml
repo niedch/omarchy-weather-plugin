@@ -1,5 +1,5 @@
 import QtQuick
-import qs
+import qs.Commons
 
 Item {
   id: root
@@ -9,8 +9,7 @@ Item {
   anchors.fill: parent
 
   function tint(c, a) {
-    var col = Qt.color(String(c))
-    return Qt.rgba(col.r, col.g, col.b, a)
+    return Qt.rgba(c.r, c.g, c.b, a)
   }
 
   component SunRay: Rectangle {
@@ -18,7 +17,7 @@ Item {
     width: 4
     height: 32
     radius: 2
-    color: root.tint(Colors.color3, 0.9)
+    color: root.tint(Color.accent, 0.9)
   }
 
   Item {
@@ -45,7 +44,7 @@ Item {
       width: 20
       height: 20
       radius: 10
-      color: root.tint(Colors.color3, 1)
+      color: root.tint(Color.accent, 1)
 
       SequentialAnimation on scale {
         loops: Animation.Infinite

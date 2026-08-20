@@ -1,5 +1,5 @@
 import QtQuick
-import qs
+import qs.Commons
 import "WeatherCodes.js" as WeatherCodes
 
 Item {
@@ -81,8 +81,8 @@ Item {
   Text {
     visible: scene.debugCycle
     text: "debug: " + scene.effectiveCode + (scene.effectiveNight ? " n" : "")
-    color: Colors.color1
-    font.family: Constants.fontFamily
+    color: Color.urgent
+    font.family: Style.font.family
     font.pixelSize: 8
     anchors.top: parent.top
     anchors.right: parent.right
