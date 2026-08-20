@@ -16,16 +16,25 @@ Item {
   RainScene {
     anchors.fill: parent
     active: root.active && root.popupShown
+    popupShown: root.popupShown
   }
 
   Rectangle {
     id: thunderCloud
-    anchors.horizontalCenter: parent.horizontalCenter
     y: 12
+    x: -width
     width: 60
     height: 24
     radius: 12
     color: root.tint(Color.muted, 0.9)
+
+    NumberAnimation on x {
+      from: -width
+      to: root.width
+      duration: 9000
+      loops: Animation.Infinite
+      running: root.active && root.popupShown
+    }
   }
 
   Rectangle {
